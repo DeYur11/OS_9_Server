@@ -27,12 +27,7 @@ public class Server {
         listenThreadVector = new Vector<>();
         acceptThread = new AcceptThread(this);
         Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                acceptThread.start();
-            }
-        },0, 60 * 1000);
+        acceptThread.start();
 
         timer.schedule(new TimerTask() {
             @Override
