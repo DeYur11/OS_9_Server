@@ -8,7 +8,6 @@ public class DataBase {
     public Vector<Idea> getIdeaVector() {
         return ideaVector;
     }
-
     public void addIdea(Idea newIdea){
         ideaVector.add(newIdea);
     }

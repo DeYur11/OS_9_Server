@@ -29,6 +29,7 @@ public class ClientListenThread extends Thread {
                 if(message instanceof Idea){
                    server.getIdeaDataBase().addIdea((Idea)message);
                    server.getSenderThreadVector().stream().forEach(thread -> thread.sendIdea(server.getIdeaDataBase().getIdeaVector().lastElement()));
+                   server.addIdea((Idea)message);
                 }else if(message instanceof  String){
                     System.out.println("Message");
                     System.out.println((String)message);;

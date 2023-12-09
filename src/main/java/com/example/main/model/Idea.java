@@ -7,7 +7,6 @@ public class Idea implements Serializable {
     public int ideaID;
     private String ideaText;
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

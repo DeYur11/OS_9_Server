@@ -1,5 +1,7 @@
 package com.example.main.model;
 
+import com.example.main.UpdateListener;
+
 import java.net.ServerSocket;
 import java.util.Vector;
 
@@ -8,6 +10,7 @@ public class Server {
     private ServerSocket serverSocket;
     private Vector<ClientSenderThread> senderThreadVector;
     private Vector<ClientListenThread> listenThreadVector;
+    private UpdateListener updateListener;
 
     private AcceptThread acceptThread;
 
@@ -40,12 +43,24 @@ public class Server {
         return serverSocket;
     }
 
+
+    public UpdateListener getUpdateListener() {
+        return updateListener;
+    }
+
+    public void setUpdateListener(UpdateListener updateListener) {
+        this.updateListener = updateListener;
+    }
+
     public void endAccepting(){
         System.out.println(senderThreadVector);
         System.out.println(listenThreadVector);
         senderThreadVector.forEach(ClientSenderThread::sendEndAccept);
         acceptThread.stopThread();
         acceptThread.interrupt();
+    }
+    public void addIdea(Idea toAdd){
+        updateListener.addIdea(toAdd);
     }
 
 }
