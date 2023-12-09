@@ -1,10 +1,10 @@
-package com.example.os_9_server.model;
+package com.example.main.model;
 
 import java.io.Serializable;
 
 public class Idea implements Serializable {
     public static int ideaAmount = 1;
-    private int ideaID;
+    public int ideaID;
     private String ideaText;
 
 
@@ -49,6 +49,5 @@ public class Idea implements Serializable {
     public void setIdeaText(String ideaText) {
         this.ideaText = ideaText;
     }
-
 
 }

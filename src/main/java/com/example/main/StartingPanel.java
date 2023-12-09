@@ -1,4 +1,4 @@
-package com.example.os_9_server;
+package com.example.main;
 
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import com.example.os_9_server.model.Server;
+import com.example.main.model.Server;
 
 import java.io.IOException;
 import java.net.URL;

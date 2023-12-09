@@ -6,7 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1 Restructured">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/messages/EndAcceptingMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/messages/EndAcceptingMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/ResultPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/ResultPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/ServerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/ServerContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/StartingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/StartingPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/AcceptThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/AcceptThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/ClientListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientListenThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/ClientSenderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientSenderThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/DatabaseMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/DatabaseMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/Idea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Idea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/UpdateMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/UpdateMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/newIdeaMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/newIdeaMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/MainPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/MainPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/ResultPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/ResultPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/StartingPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/StartingPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +70,7 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.example.os_9_server.HelloApplication" />
+      <option name="MAIN_CLASS_NAME" value="com.example.main.HelloApplication" />
       <module name="OS_9_Server" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702142690500</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="V1.1 Restructured">
+      <created>1702143356612</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702143356612</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -1,4 +1,4 @@
-package com.example.os_9_server.model;
+package com.example.main.model;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -25,12 +25,10 @@ public class ClientListenThread extends Thread {
         while(true){
             try{
                 Object message = ideaInputStream.readObject();
-                try {
-                    ideaInputStream = new ObjectInputStream(client.getClientSocket().getInputStream());
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
                 System.out.println("Accec");
+                if(true){
+                    return;
+                }
                 if(false){
                    // server.getIdeaDataBase().addIdea((Idea)message);
                     server.getSenderThreadVector().stream().forEach(thread -> thread.sendMessage());
@@ -40,7 +38,7 @@ public class ClientListenThread extends Thread {
                 }
             }
             catch (Exception e){
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
 
         }

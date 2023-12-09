@@ -1,6 +1,6 @@
-package com.example.os_9_server;
+package com.example.main;
 
-import com.example.os_9_server.model.Server;
+import com.example.main.model.Server;
 
 public abstract class ServerContainer {
     private static Server server;

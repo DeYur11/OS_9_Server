@@ -1,6 +1,6 @@
 package tools;
 
-import com.example.os_9_server.model.Idea;
+import com.example.main.model.Idea;
 
 import java.io.Serializable;
 

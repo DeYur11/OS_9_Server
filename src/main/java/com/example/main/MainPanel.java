@@ -1,9 +1,9 @@
-package com.example.os_9_server;
+package com.example.main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
-import com.example.os_9_server.model.Server;
+import com.example.main.model.Server;
 
 public class MainPanel {
     Server server = ServerContainer.getServer();

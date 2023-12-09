@@ -1,4 +1,4 @@
-package com.example.os_9_server;
+package com.example.main;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

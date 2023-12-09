@@ -1,4 +1,4 @@
-package com.example.os_9_server.model;
+package com.example.main.model;
 
 import java.net.Socket;
 
