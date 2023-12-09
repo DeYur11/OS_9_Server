@@ -21,7 +21,15 @@ public class ClientSenderThread {
         System.out.println("Sending started");
     }
 
-    public void sendMessage(){
+    public void sendIdea(Idea idea){
+        try{
+            System.out.println("Sending idea: "+idea.getIdeaText());
+            out.writeObject(idea);
+            out.flush();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
     public void sendEndAccept(){
         try {

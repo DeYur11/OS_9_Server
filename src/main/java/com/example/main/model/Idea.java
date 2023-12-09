@@ -50,4 +50,5 @@ public class Idea implements Serializable {
         this.ideaText = ideaText;
     }
 
+
 }
