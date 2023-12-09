@@ -34,20 +34,31 @@ public class Server {
             }
         },0, 60 * 1000);
 
-        endAccepting();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                endAccepting();
+            }
+        }, 60 * 1000);
     }
+
     public DataBase getIdeaDataBase() {
         return ideaDataBase;
     }
+
     public Vector<ClientSenderThread> getSenderThreadVector() {
         return senderThreadVector;
     }
+
     public Vector<ClientListenThread> getListenThreadVector() {
         return listenThreadVector;
     }
+
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
+
+
     public UpdateListener getUpdateListener() {
         return updateListener;
     }
