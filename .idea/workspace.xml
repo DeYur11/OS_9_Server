@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1.1 Fix problem with timers">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/main/VoteWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/VoteWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/StartingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/StartingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/UpdateListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/UpdateListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/AcceptThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/AcceptThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientListenThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/main/MainPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/MainPanel.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.3a Anton bug fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702150467102</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="V1.3a Anton bug fix">
+      <created>1702158621460</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702158621460</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +183,7 @@
     <MESSAGE value="V1.1 Restructured" />
     <MESSAGE value="V1.1 Fix problem with timers" />
     <MESSAGE value="V1.1.1 Fix problem with timers" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.1.1 Fix problem with timers" />
+    <MESSAGE value="V1.3a Anton bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.3a Anton bug fix" />
   </component>
 </project>

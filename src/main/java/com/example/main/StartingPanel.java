@@ -56,7 +56,6 @@ public class StartingPanel implements Initializable, UpdateListener {
         }
 
         System.out.println(server.getListenThreadVector());
-        ServerContainer.getServer().endAccepting();
     }
     @Override
     public void update(){
