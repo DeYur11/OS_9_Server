@@ -1,11 +1,16 @@
 package com.example.main.model;
 
+import javafx.beans.property.BooleanProperty;
+
 import java.io.Serializable;
 
 public class Idea implements Serializable {
-    public static int ideaAmount = 1;
+    public static int ideaAmount = 0;
     public int ideaID;
     private String ideaText;
+    private BooleanProperty isVoted;
+    private int ideaVotes;
+
 
     @Override
     public boolean equals(Object o) {
@@ -20,9 +25,9 @@ public class Idea implements Serializable {
     }
 
     public Idea(String ideaText) {
+        ideaAmount++;
         this.ideaID = ideaAmount;
         this.ideaText = ideaText;
-        ideaAmount++;
     }
 
     public static int getIdeaAmount() {
@@ -49,5 +54,8 @@ public class Idea implements Serializable {
         this.ideaText = ideaText;
     }
 
+    public void increaseVoteAmount(){
+        this.ideaVotes++;
+    }
 
 }
