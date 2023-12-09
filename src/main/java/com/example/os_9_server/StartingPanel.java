@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import model.Server;
+import com.example.os_9_server.model.Server;
 
 import java.io.IOException;
 import java.net.URL;

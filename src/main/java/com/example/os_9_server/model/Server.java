@@ -1,4 +1,4 @@
-package model;
+package com.example.os_9_server.model;
 
 import java.net.ServerSocket;
 import java.util.Vector;

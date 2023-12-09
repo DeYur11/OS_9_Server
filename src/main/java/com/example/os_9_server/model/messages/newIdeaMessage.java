@@ -1,6 +1,6 @@
-package model.messages;
+package com.example.os_9_server.model.messages;
 
-import model.Idea;
+import com.example.os_9_server.model.Idea;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package model;
+package com.example.os_9_server.model;
 
 import java.util.Vector;
 

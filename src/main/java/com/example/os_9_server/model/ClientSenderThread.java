@@ -1,6 +1,6 @@
-package model;
+package com.example.os_9_server.model;
 
-import model.messages.EndAcceptingMessage;
+import com.example.os_9_server.model.messages.EndAcceptingMessage;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
