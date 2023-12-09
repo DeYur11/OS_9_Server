@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.net.Socket;
 
-public class Client {
+public class Client implements Serializable {
     private Socket clientSocket;
 
     public Client(Socket clientSocket) {

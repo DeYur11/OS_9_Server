@@ -5,7 +5,7 @@ import model.Idea;
 import java.io.Serializable;
 
 public class newIdeaMessage implements Serializable {
-    private Idea newIdea;
+    private final Idea newIdea;
 
     public newIdeaMessage(Idea newIdea) {
         this.newIdea = newIdea;
