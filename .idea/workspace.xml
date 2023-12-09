@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1 Restructured">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/ResultPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/ResultPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/ServerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/ServerContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/StartingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/StartingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/AcceptThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/AcceptThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/ClientListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientListenThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/ClientSenderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientSenderThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/DatabaseMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/DatabaseMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/Idea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Idea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/UpdateMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/UpdateMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tools/newIdeaMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/newIdeaMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/MainPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/MainPanel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/ResultPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/ResultPanel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/StartingPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/StartingPanel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,19 +26,26 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
   <component name="ProjectId" id="2ZG96z70YWMRPBmaCGknd0nnpVH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -96,6 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1702037380124</updated>
+      <workItem from="1702144735684" duration="154000" />
     </task>
     <task id="LOCAL-00001" summary="V1.0">
       <created>1702037560977</created>
@@ -148,6 +134,9 @@
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

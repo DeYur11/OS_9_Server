@@ -1,5 +1,6 @@
 package com.example.main.model;
 
+
 import java.io.Serializable;
 import java.net.Socket;
 
