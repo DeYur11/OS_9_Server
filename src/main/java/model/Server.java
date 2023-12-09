@@ -9,14 +9,19 @@ public class Server {
     private Vector<ClientSenderThread> senderThreadVector;
     private Vector<ClientListenThread> listenThreadVector;
 
+    private AcceptThread acceptThread;
+
     public Server() {
         try {
-            serverSocket = new ServerSocket(100);
+            serverSocket = new ServerSocket(999);
         }catch (Exception e){
             e.printStackTrace();
         }
         ideaDataBase = new DataBase();
         senderThreadVector = new Vector<>();
+        listenThreadVector = new Vector<>();
+        acceptThread = new AcceptThread(this);
+        acceptThread.start();
     }
 
     public DataBase getIdeaDataBase() {
@@ -34,4 +39,13 @@ public class Server {
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
+
+    public void endAccepting(){
+        System.out.println(senderThreadVector);
+        System.out.println(listenThreadVector);
+        senderThreadVector.forEach(ClientSenderThread::sendEndAccept);
+        acceptThread.stopThread();
+        acceptThread.interrupt();
+    }
+
 }

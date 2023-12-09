@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.0">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/AcceptThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/ClientListenThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/ClientSenderThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/DataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/DatabaseMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Idea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/UpdateMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/MainPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/ResultPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/ServerContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/StartingPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/messages/EndAcceptingMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/MainPanel.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/ResultPanel.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/os_9_server/StartingPanel.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/AcceptThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/AcceptThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ClientListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ClientListenThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ClientSenderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ClientSenderThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -49,14 +53,30 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="database" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="model.DatabaseMain" />
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.os_9_server" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.os_9_server.HelloApplication" />
       <module name="OS_9_Server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="database" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.os_9_server.model.DatabaseMain" />
+      <module name="OS_9_Server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.database" />
+      <item itemvalue="Application.Main" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -80,5 +100,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="V1.0" />
     <option name="LAST_COMMIT_MESSAGE" value="V1.0" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/ClientListenThread.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

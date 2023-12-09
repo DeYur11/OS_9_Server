@@ -13,9 +13,11 @@ public class ClientListenThread extends Thread {
         this.server = server;
         try {
             ideaInputStream = new ObjectInputStream(client.getClientSocket().getInputStream());
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        System.out.println("Listener thread created");
+
     }
 
     @Override
@@ -23,11 +25,18 @@ public class ClientListenThread extends Thread {
         while(true){
             try{
                 Object message = ideaInputStream.readObject();
-                if(message instanceof Idea){
-                    server.getIdeaDataBase().addIdea((Idea)message);
+                try {
+                    ideaInputStream = new ObjectInputStream(client.getClientSocket().getInputStream());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                System.out.println("Accec");
+                if(false){
+                   // server.getIdeaDataBase().addIdea((Idea)message);
                     server.getSenderThreadVector().stream().forEach(thread -> thread.sendMessage());
                 }else if(message instanceof  String){
-                    System.out.println(message);;
+                    System.out.println("Message");
+                    System.out.println((String)message);;
                 }
             }
             catch (Exception e){
