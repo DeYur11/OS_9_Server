@@ -1,10 +1,12 @@
 package com.example.main.model;
 
 import tools.messages.EndAcceptingMessage;
-import tools.messages.TimeoutVoteMessage;
+import tools.messages.StartVoteMessage;
+import tools.messages.VoteResultMessage;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.Vector;
 
 public class ClientSenderThread {
     private Client client;
@@ -40,9 +42,9 @@ public class ClientSenderThread {
         }
     }
 
-    public void sendTimeoutVote(){
+    public void sendStartVote(){
         try {
-            TimeoutVoteMessage end = new TimeoutVoteMessage();
+            StartVoteMessage end = new StartVoteMessage();
             out.writeObject(end);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -50,10 +52,21 @@ public class ClientSenderThread {
     }
     public void sendVoteResult(){
         try {
-            TimeoutVoteMessage end = new TimeoutVoteMessage();
+            VoteResultMessage end = new VoteResultMessage();
             out.writeObject(end);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+   public void sendBestIdeas(){
+        try {
+            Vector<Idea> bestIdea = server.getIdeaDataBase().getBestIdeas();
+
+            out.writeObject(bestIdea);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

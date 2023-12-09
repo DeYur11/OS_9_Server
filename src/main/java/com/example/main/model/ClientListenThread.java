@@ -9,6 +9,7 @@ public class ClientListenThread extends Thread {
     private ObjectInputStream ideaInputStream;
     private Server server;
 
+
     public ClientListenThread(Client client, Server server) {
         this.client = client;
         this.server = server;
@@ -31,12 +32,17 @@ public class ClientListenThread extends Thread {
                    Idea.ideaAmount++;
                    server.getSenderThreadVector().stream().forEach(thread -> thread.sendIdea(server.getIdeaDataBase().getIdeaVector().lastElement()));
                    server.addIdea((Idea)message);
-                }else if(message instanceof  String){
+                }
+                else if(message instanceof  String){
                     System.out.println("Message");
-                    System.out.println((String)message);;
-                }else if(message.getClass().equals(Vector.class)){
-                    Vector<Integer> vector = (Vector<Integer>) message;
+                    System.out.println((String)message);
+                }
+                else if(message.getClass().equals(Vector.class)){
+                    Vector<Integer> selectedID = (Vector<Integer>) message;
 
+                    for (int i = 0; i < selectedID.size(); i++) {
+                        server.getIdeaDataBase().getIdeaByID(selectedID.get(i)).increaseVoteAmount();
+                    }
                 }
             }
             catch (Exception e){

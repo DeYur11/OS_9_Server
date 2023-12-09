@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1 Fix problem with timers">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_12_2023_21_02__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_12_2023_21_02__Changes_.xml" afterDir="false" />
+    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1.1 Fix problem with timers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientListenThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientSenderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientSenderThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/Idea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Idea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tools/messages/EndAcceptingMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/messages/EndAcceptingMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/messages/TimeoutVoteMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/messages/StartVoteMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/newIdeaMessage.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +32,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -145,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702150112238</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="V1.1.1 Fix problem with timers">
+      <option name="closed" value="true" />
+      <created>1702150467102</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702150467102</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +184,7 @@
     <MESSAGE value="V1.1 New Idea" />
     <MESSAGE value="V1.1 Restructured" />
     <MESSAGE value="V1.1 Fix problem with timers" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.1 Fix problem with timers" />
+    <MESSAGE value="V1.1.1 Fix problem with timers" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.1.1 Fix problem with timers" />
   </component>
 </project>

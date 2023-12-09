@@ -42,6 +42,18 @@ public class Idea implements Serializable {
         return ideaID;
     }
 
+    public boolean isIsVoted() {
+        return isVoted.get();
+    }
+
+    public BooleanProperty isVotedProperty() {
+        return isVoted;
+    }
+
+    public int getIdeaVotes() {
+        return ideaVotes;
+    }
+
     public void setIdeaID(int ideaID) {
         this.ideaID = ideaID;
     }
@@ -57,5 +69,4 @@ public class Idea implements Serializable {
     public void increaseVoteAmount(){
         this.ideaVotes++;
     }
-
 }
