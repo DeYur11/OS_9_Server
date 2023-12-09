@@ -26,24 +26,18 @@ public class Server {
         acceptThread = new AcceptThread(this);
         acceptThread.start();
     }
-
     public DataBase getIdeaDataBase() {
         return ideaDataBase;
     }
-
     public Vector<ClientSenderThread> getSenderThreadVector() {
         return senderThreadVector;
     }
-
     public Vector<ClientListenThread> getListenThreadVector() {
         return listenThreadVector;
     }
-
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
-
-
     public UpdateListener getUpdateListener() {
         return updateListener;
     }
