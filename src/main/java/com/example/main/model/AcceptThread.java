@@ -38,7 +38,7 @@ public class AcceptThread extends Thread {
                 e.printStackTrace();
             }
         }
-        System.out.println("Ended accepting");
+        System.out.println("Ended thread accepting");
     }
 
     public void stopThread() {

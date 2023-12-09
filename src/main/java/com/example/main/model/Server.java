@@ -76,6 +76,12 @@ public class Server {
                 senderThreadVector.forEach(ClientSenderThread::sendTimeoutVote);
             }
         },180 * 1000);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
+            }
+        },180 * 1000);
 
     }
     public void addIdea(Idea toAdd){

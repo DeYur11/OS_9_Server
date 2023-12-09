@@ -48,4 +48,12 @@ public class ClientSenderThread {
             throw new RuntimeException(e);
         }
     }
+    public void sendVoteResult(){
+        try {
+            TimeoutVoteMessage end = new TimeoutVoteMessage();
+            out.writeObject(end);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

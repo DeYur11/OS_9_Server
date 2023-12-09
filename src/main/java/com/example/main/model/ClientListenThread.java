@@ -2,6 +2,7 @@ package com.example.main.model;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.Vector;
 
 public class ClientListenThread extends Thread {
     private Client client;
@@ -17,7 +18,6 @@ public class ClientListenThread extends Thread {
             throw new RuntimeException(e);
         }
         System.out.println("Listener thread created");
-
     }
 
     @Override
@@ -34,6 +34,9 @@ public class ClientListenThread extends Thread {
                 }else if(message instanceof  String){
                     System.out.println("Message");
                     System.out.println((String)message);;
+                }else if(message.getClass().equals(Vector.class)){
+                    Vector<Integer> vector = (Vector<Integer>) message;
+
                 }
             }
             catch (Exception e){
