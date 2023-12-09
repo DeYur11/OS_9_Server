@@ -29,7 +29,6 @@ public class ClientSenderThread {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
     public void sendEndAccept(){
         try {
