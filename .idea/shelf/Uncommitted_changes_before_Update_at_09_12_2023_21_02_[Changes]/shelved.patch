@@ -1,0 +1,291 @@
+Index: src/main/java/com/example/main/model/AcceptThread.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.main.model;\r\n\r\nimport java.net.Socket;\r\nimport java.util.Timer;\r\nimport java.util.TimerTask;\r\n\r\npublic class AcceptThread extends Thread {\r\n    private Server server;\r\n\r\n    private boolean running = true;\r\n\r\n    public AcceptThread(Server server) {\r\n        System.out.println(\"Accept thread started\");\r\n        this.server = server;\r\n    }\r\n\r\n    @Override\r\n    public void run() {\r\n        TimerTask task = new TimerTask() {\r\n            @Override\r\n            public void run() {\r\n                try {\r\n                    System.out.println(\"Started accepting\");\r\n                    Socket socket = server.getServerSocket().accept();\r\n                    if (!running) {\r\n                        System.out.println(\"Ended accepting\");\r\n                        return;\r\n                    }\r\n                    System.out.println(\"Socket accepted\");\r\n                    Client client = new Client(socket);\r\n\r\n                    // Важливо щоб спочатку був Output а потім Input\r\n                    ClientSenderThread senderThread = new ClientSenderThread(client, server);\r\n                    ClientListenThread listenThread = new ClientListenThread(client, server);\r\n\r\n                    server.getListenThreadVector().add(listenThread);\r\n                    server.getSenderThreadVector().add(senderThread);\r\n\r\n                    listenThread.start();\r\n                } catch (Exception e) {\r\n                    e.printStackTrace();\r\n                }\r\n            }\r\n        };\r\n\r\n        Timer timer = new Timer();\r\n        timer.schedule(task, 0, 60 * 1000);\r\n\r\n        try {\r\n            Thread.sleep(60 * 1000);\r\n        } catch (InterruptedException e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n        this.stopThread();\r\n        System.out.println(\"Ended thread accepting\");\r\n    }\r\n\r\n    public void stopThread() {\r\n        running = false;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/main/model/AcceptThread.java b/src/main/java/com/example/main/model/AcceptThread.java
+--- a/src/main/java/com/example/main/model/AcceptThread.java	(revision ebd398c1e1da14a1c5a4aa8e9e86090d189be1b4)
++++ b/src/main/java/com/example/main/model/AcceptThread.java	(date 1702147104162)
+@@ -1,8 +1,6 @@
+ package com.example.main.model;
+ 
+ import java.net.Socket;
+-import java.util.Timer;
+-import java.util.TimerTask;
+ 
+ public class AcceptThread extends Thread {
+     private Server server;
+@@ -15,45 +13,32 @@
+     }
+ 
+     @Override
+-    public void run() {
+-        TimerTask task = new TimerTask() {
+-            @Override
+-            public void run() {
+-                try {
+-                    System.out.println("Started accepting");
+-                    Socket socket = server.getServerSocket().accept();
+-                    if (!running) {
+-                        System.out.println("Ended accepting");
+-                        return;
+-                    }
+-                    System.out.println("Socket accepted");
+-                    Client client = new Client(socket);
++    public void run(){
++        while(running){
++            try{
++                System.out.println("Started accepting");
++                Socket socket = server.getServerSocket().accept();
++                if(!running){
++                    System.out.println("Ended accepting");
++                    return;
++                }
++                System.out.println("Socket accepted");
++                Client client = new Client(socket);
+ 
+-                    // Важливо щоб спочатку був Output а потім Input
+-                    ClientSenderThread senderThread = new ClientSenderThread(client, server);
+-                    ClientListenThread listenThread = new ClientListenThread(client, server);
++
++                // Важливо щоб спочатку був Output а потім Input
++                ClientSenderThread senderThread = new ClientSenderThread(client, server);
++                ClientListenThread listenThread = new ClientListenThread(client ,server);
+ 
+-                    server.getListenThreadVector().add(listenThread);
+-                    server.getSenderThreadVector().add(senderThread);
++                server.getListenThreadVector().add(listenThread);
++                server.getSenderThreadVector().add(senderThread);
+ 
+-                    listenThread.start();
+-                } catch (Exception e) {
+-                    e.printStackTrace();
+-                }
++                listenThread.start();
++            }catch (Exception e){
++                e.printStackTrace();
+             }
+-        };
+-
+-        Timer timer = new Timer();
+-        timer.schedule(task, 0, 60 * 1000);
+-
+-        try {
+-            Thread.sleep(60 * 1000);
+-        } catch (InterruptedException e) {
+-            e.printStackTrace();
+         }
+-
+-        this.stopThread();
+-        System.out.println("Ended thread accepting");
++        System.out.println("Ended accepting");
+     }
+ 
+     public void stopThread() {
+Index: src/main/java/com/example/main/model/Server.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.main.model;\r\n\r\nimport java.net.ServerSocket;\r\nimport java.util.Vector;\r\n\r\npublic class Server {\r\n    private DataBase ideaDataBase;\r\n    private ServerSocket serverSocket;\r\n    private Vector<ClientSenderThread> senderThreadVector;\r\n    private Vector<ClientListenThread> listenThreadVector;\r\n\r\n    private AcceptThread acceptThread;\r\n\r\n    public Server() {\r\n        try {\r\n            serverSocket = new ServerSocket(999);\r\n        }catch (Exception e){\r\n            e.printStackTrace();\r\n        }\r\n        ideaDataBase = new DataBase();\r\n        senderThreadVector = new Vector<>();\r\n        listenThreadVector = new Vector<>();\r\n        acceptThread = new AcceptThread(this);\r\n        acceptThread.start();\r\n    }\r\n\r\n    public DataBase getIdeaDataBase() {\r\n        return ideaDataBase;\r\n    }\r\n\r\n    public Vector<ClientSenderThread> getSenderThreadVector() {\r\n        return senderThreadVector;\r\n    }\r\n\r\n    public Vector<ClientListenThread> getListenThreadVector() {\r\n        return listenThreadVector;\r\n    }\r\n\r\n    public ServerSocket getServerSocket() {\r\n        return serverSocket;\r\n    }\r\n\r\n    public void endAccepting(){\r\n        System.out.println(senderThreadVector);\r\n        System.out.println(listenThreadVector);\r\n        senderThreadVector.forEach(ClientSenderThread::sendEndAccept);\r\n        acceptThread.stopThread();\r\n        acceptThread.interrupt();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/main/model/Server.java b/src/main/java/com/example/main/model/Server.java
+--- a/src/main/java/com/example/main/model/Server.java	(revision ebd398c1e1da14a1c5a4aa8e9e86090d189be1b4)
++++ b/src/main/java/com/example/main/model/Server.java	(date 1702148366602)
+@@ -1,6 +1,8 @@
+ package com.example.main.model;
+ 
+ import java.net.ServerSocket;
++import java.util.Timer;
++import java.util.TimerTask;
+ import java.util.Vector;
+ 
+ public class Server {
+@@ -21,7 +23,20 @@
+         senderThreadVector = new Vector<>();
+         listenThreadVector = new Vector<>();
+         acceptThread = new AcceptThread(this);
+-        acceptThread.start();
++        Timer timer = new Timer();
++        timer.schedule(new TimerTask() {
++            @Override
++            public void run() {
++                acceptThread.start();
++            }
++        },0, 60 * 1000);
++
++        try {
++            Thread.sleep(60 * 1000);
++        } catch (InterruptedException e) {
++            e.printStackTrace();
++        }
++        endAccepting();
+     }
+ 
+     public DataBase getIdeaDataBase() {
+@@ -46,6 +61,15 @@
+         senderThreadVector.forEach(ClientSenderThread::sendEndAccept);
+         acceptThread.stopThread();
+         acceptThread.interrupt();
++
++        Timer timer = new Timer();
++        timer.schedule(new TimerTask() {
++            @Override
++            public void run() {
++                senderThreadVector.forEach(ClientSenderThread::sendTimeoutVote);
++            }
++        },180 * 1000);
++
+     }
+ 
+ }
+Index: src/main/java/com/example/main/model/ClientSenderThread.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.main.model;\r\n\r\nimport tools.messages.EndAcceptingMessage;\r\n\r\nimport java.io.IOException;\r\nimport java.io.ObjectOutputStream;\r\n\r\npublic class ClientSenderThread {\r\n    private Client client;\r\n    private Server server;\r\n    private ObjectOutputStream out;\r\n\r\n    public ClientSenderThread(Client client, Server server) {\r\n        this.client = client;\r\n        this.server = server;\r\n        try {\r\n            this.out = new ObjectOutputStream(client.getClientSocket().getOutputStream());\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        System.out.println(\"Sending started\");\r\n    }\r\n\r\n    public void sendMessage(){\r\n    }\r\n    public void sendEndAccept(){\r\n        try {\r\n            EndAcceptingMessage end = new EndAcceptingMessage();\r\n            out.writeObject(end);\r\n        } catch (IOException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/main/model/ClientSenderThread.java b/src/main/java/com/example/main/model/ClientSenderThread.java
+--- a/src/main/java/com/example/main/model/ClientSenderThread.java	(revision ebd398c1e1da14a1c5a4aa8e9e86090d189be1b4)
++++ b/src/main/java/com/example/main/model/ClientSenderThread.java	(date 1702146425253)
+@@ -1,6 +1,7 @@
+ package com.example.main.model;
+ 
+ import tools.messages.EndAcceptingMessage;
++import tools.messages.TimeoutVoteMessage;
+ 
+ import java.io.IOException;
+ import java.io.ObjectOutputStream;
+@@ -31,4 +32,13 @@
+             throw new RuntimeException(e);
+         }
+     }
++
++    public void sendTimeoutVote(){
++        try {
++            TimeoutVoteMessage end = new TimeoutVoteMessage();
++            out.writeObject(end);
++        } catch (IOException e) {
++            throw new RuntimeException(e);
++        }
++    }
+ }
+Index: src/main/java/tools/messages/TimeoutVoteMessage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/tools/messages/TimeoutVoteMessage.java b/src/main/java/tools/messages/TimeoutVoteMessage.java
+new file mode 100644
+--- /dev/null	(date 1702148366611)
++++ b/src/main/java/tools/messages/TimeoutVoteMessage.java	(date 1702148366611)
+@@ -0,0 +1,8 @@
++package tools.messages;
++
++
++import java.io.Serializable;
++public class TimeoutVoteMessage implements Serializable {
++
++
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"20b879c2-0154-4e40-a652-c14ad58cefbc\" name=\"Changes\" comment=\"V1.1 Restructured\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 7\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2ZG96z70YWMRPBmaCGknd0nnpVH\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"\" />\r\n      <recent name=\"java\" />\r\n      <recent name=\"com.example.os_9_server\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.main.HelloApplication\" />\r\n      <module name=\"OS_9_Server\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"database\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.example.os_9_server.model.DatabaseMain\" />\r\n      <module name=\"OS_9_Server\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.database\" />\r\n      <item itemvalue=\"Application.Main\" />\r\n    </list>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"20b879c2-0154-4e40-a652-c14ad58cefbc\" name=\"Changes\" comment=\"\" />\r\n      <created>1702037380124</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1702037380124</updated>\r\n      <workItem from=\"1702144735684\" duration=\"154000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"V1.0\">\r\n      <created>1702037560977</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702037560977</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"V1.1 Start functional\">\r\n      <created>1702138805205</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702138805205</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"V1.1 Start functional\">\r\n      <created>1702140559760</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702140559760</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"V1.1 New Idea Message\">\r\n      <created>1702141170171</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702141170171</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"V1.1 New Idea\">\r\n      <created>1702142450990</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702142450990</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"V1.1 Restructured\">\r\n      <created>1702142690500</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702142690500</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"V1.1 Restructured\">\r\n      <created>1702143356612</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702143356612</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"V1.0\" />\r\n    <MESSAGE value=\"V1.1 Start functional\" />\r\n    <MESSAGE value=\"V1.1 New Idea Message\" />\r\n    <MESSAGE value=\"V1.1 New Idea\" />\r\n    <MESSAGE value=\"V1.1 Restructured\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"V1.1 Restructured\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ebd398c1e1da14a1c5a4aa8e9e86090d189be1b4)
++++ b/.idea/workspace.xml	(date 1702148374638)
+@@ -4,8 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1 Restructured">
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1 Added timer for accepting tread for 1 min">
++      <change afterPath="$PROJECT_DIR$/src/main/java/tools/messages/TimeoutVoteMessage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/AcceptThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/AcceptThread.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientSenderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientSenderThread.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -26,9 +30,9 @@
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 7
+-}]]></component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 7
++}</component>
+   <component name="ProjectId" id="2ZG96z70YWMRPBmaCGknd0nnpVH" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+@@ -42,6 +46,10 @@
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "git-widget-placeholder": "master",
+     "kotlin-language-version-configured": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
+     "vue.rearranger.settings.migration": "true"
+   }
+@@ -72,6 +80,13 @@
+       <item itemvalue="Application.database" />
+       <item itemvalue="Application.Main" />
+     </list>
++  </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="jdk-20.0.2-azul-20.0.2-3183f394aec4-4edb7f01" />
++      </set>
++    </attachedChunks>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -82,6 +97,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1702037380124</updated>
+       <workItem from="1702144735684" duration="154000" />
++      <workItem from="1702144899597" duration="3472000" />
+     </task>
+     <task id="LOCAL-00001" summary="V1.0">
+       <created>1702037560977</created>
+@@ -132,7 +148,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1702143356612</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="V1.1 Added timer for accepting tread for 1 min">
++      <option name="closed" value="true" />
++      <created>1702145020133</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1702145020133</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -155,6 +179,7 @@
+     <MESSAGE value="V1.1 New Idea Message" />
+     <MESSAGE value="V1.1 New Idea" />
+     <MESSAGE value="V1.1 Restructured" />
+-    <option name="LAST_COMMIT_MESSAGE" value="V1.1 Restructured" />
++    <MESSAGE value="V1.1 Added timer for accepting tread for 1 min" />
++    <option name="LAST_COMMIT_MESSAGE" value="V1.1 Added timer for accepting tread for 1 min" />
+   </component>
+ </project>
+\ No newline at end of file
