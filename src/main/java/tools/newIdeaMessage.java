@@ -1,4 +1,4 @@
-package com.example.os_9_server.model.messages;
+package tools;
 
 import com.example.os_9_server.model.Idea;
 

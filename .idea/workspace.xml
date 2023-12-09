@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1 New Idea Message">
+    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.1 Restructured">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Idea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Idea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/messages/newIdeaMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/messages/newIdeaMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/messages/EndAcceptingMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/os_9_server/model/messages/EndAcceptingMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +42,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="java" />
       <recent name="com.example.os_9_server" />
     </key>
   </component>
@@ -104,7 +104,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702141170171</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="V1.1 New Idea">
+      <created>1702142450990</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702142450990</updated>
+    </task>
+    <task id="LOCAL-00006" summary="V1.1 Restructured">
+      <created>1702142690500</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702142690500</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +136,8 @@
     <MESSAGE value="V1.0" />
     <MESSAGE value="V1.1 Start functional" />
     <MESSAGE value="V1.1 New Idea Message" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.1 New Idea Message" />
+    <MESSAGE value="V1.1 New Idea" />
+    <MESSAGE value="V1.1 Restructured" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.1 Restructured" />
   </component>
 </project>
