@@ -44,6 +44,7 @@ public class ClientListenThread extends Thread {
                         server.getIdeaDataBase().getIdeaByID(selectedID.get(i)).increaseVoteAmount();
                     }
                 }
+
             }
             catch (Exception e){
                 throw new RuntimeException(e);

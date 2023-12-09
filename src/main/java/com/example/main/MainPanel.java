@@ -6,18 +6,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import com.example.main.model.Server;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainPanel implements Initializable, UpdateListener {
     Server server = ServerContainer.getServer();
 
+
+    @FXML
+    private BorderPane root;
     @FXML
     private TableView<Idea> ideaTable;
 
@@ -57,5 +67,22 @@ public class MainPanel implements Initializable, UpdateListener {
     @Override
     public void addIdea(Idea idea){
         onAddIdea(idea);
+    }
+    @Override
+    public void update(){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                Parent mainWindow;
+                try {
+                    mainWindow = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("VoteWindow.fxml")));
+                    Scene mainWindowsScene = new Scene(mainWindow);
+                    Stage curStage = (Stage) root.getScene().getWindow();
+                    curStage.setScene(mainWindowsScene);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 }

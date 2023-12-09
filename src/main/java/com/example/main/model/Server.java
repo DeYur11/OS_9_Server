@@ -33,16 +33,10 @@ public class Server {
             @Override
             public void run() {
                 endAccepting();
+                updateListener.update();
+                System.out.println("Hello");
             }
-        }, 60 * 1000);
-
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                senderThreadVector.forEach(ClientSenderThread::sendStartVote);
-            }
-        },180 * 1000);
+        }, 6 * 1000);
 
         timer.schedule(new TimerTask() {
             @Override
@@ -90,6 +84,18 @@ public class Server {
         senderThreadVector.forEach(ClientSenderThread::sendEndAccept);
         acceptThread.stopThread();
         acceptThread.interrupt();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                senderThreadVector.forEach(ClientSenderThread::sendStartVote);
+                System.out.println("Ended voting");
+                updateListener.update();
+            }
+        },10 * 1000);
+    }
+    public void addCounter(){
+        updateListener.update();
     }
     public void addIdea(Idea toAdd){
         updateListener.addIdea(toAdd);

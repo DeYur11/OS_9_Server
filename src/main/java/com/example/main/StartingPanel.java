@@ -1,6 +1,7 @@
 package com.example.main;
 
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,7 +19,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class StartingPanel implements Initializable {
+public class StartingPanel implements Initializable, UpdateListener {
 
     Server server = ServerContainer.getServer();
     @FXML
@@ -57,10 +58,20 @@ public class StartingPanel implements Initializable {
         System.out.println(server.getListenThreadVector());
         ServerContainer.getServer().endAccepting();
     }
+    @Override
+    public void update(){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                loadNextScene();
+            }
+        });
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ServerContainer.setServer(new Server());
         this.server = ServerContainer.getServer();
+        ServerContainer.getServer().setUpdateListener(this);
     }
 }

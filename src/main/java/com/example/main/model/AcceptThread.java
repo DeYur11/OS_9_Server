@@ -16,7 +16,7 @@ public class AcceptThread extends Thread {
     public void run(){
         while(running){
             try{
-                System.out.println("Started accepting");
+                System.out.println("Started listening");
                 Socket socket = server.getServerSocket().accept();
                 if(!running){
                     System.out.println("Ended accepting");
