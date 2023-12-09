@@ -1,6 +1,7 @@
 package com.example.main.model;
 
 import tools.messages.EndAcceptingMessage;
+import tools.messages.TimeoutVoteMessage;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -33,6 +34,15 @@ public class ClientSenderThread {
     public void sendEndAccept(){
         try {
             EndAcceptingMessage end = new EndAcceptingMessage();
+            out.writeObject(end);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void sendTimeoutVote(){
+        try {
+            TimeoutVoteMessage end = new TimeoutVoteMessage();
             out.writeObject(end);
         } catch (IOException e) {
             throw new RuntimeException(e);

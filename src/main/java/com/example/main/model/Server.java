@@ -3,6 +3,8 @@ package com.example.main.model;
 import com.example.main.UpdateListener;
 
 import java.net.ServerSocket;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
 public class Server {
@@ -24,7 +26,20 @@ public class Server {
         senderThreadVector = new Vector<>();
         listenThreadVector = new Vector<>();
         acceptThread = new AcceptThread(this);
-        acceptThread.start();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                acceptThread.start();
+            }
+        },0, 60 * 1000);
+
+        try {
+            Thread.sleep(60 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        endAccepting();
     }
 
     public DataBase getIdeaDataBase() {
@@ -58,6 +73,15 @@ public class Server {
         senderThreadVector.forEach(ClientSenderThread::sendEndAccept);
         acceptThread.stopThread();
         acceptThread.interrupt();
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                senderThreadVector.forEach(ClientSenderThread::sendTimeoutVote);
+            }
+        },180 * 1000);
+
     }
     public void addIdea(Idea toAdd){
         updateListener.addIdea(toAdd);
