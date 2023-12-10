@@ -32,16 +32,6 @@ public class Server {
         acceptThread = new AcceptThread(this);
 
         acceptThread.start();
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                endAccepting();
-                updateListener.update();
-            }
-        }, 6 * 1000);
-
-
     }
 
     public DataBase getIdeaDataBase() {
@@ -80,7 +70,6 @@ public class Server {
                 endedAddingStartedVoting();
             }
         },10 * 1000);
-
     }
     private void endedAddingStartedVoting(){
         senderThreadVector.forEach(ClientSenderThread::sendStartVote);
