@@ -93,6 +93,13 @@ public class Server {
             }
         },25 * 1000);
         updateListener.update();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
+            }
+        },26 * 1000);
+
     }
 
     public void addCounter(){
