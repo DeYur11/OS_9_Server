@@ -4,6 +4,7 @@ import com.example.main.model.Idea;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -35,6 +36,10 @@ public class VoteWindow implements Initializable, UpdateListener{
         totalIdeas.setAll(ServerContainer.getServer().getIdeaDataBase().getIdeaVector());
         ideaTable.setItems(totalIdeas);
         ServerContainer.getServer().setUpdateListener(this);
+    }
+    @FXML
+    void onEnd(ActionEvent event) {
+        System.out.println("Hello from Scene 3");
     }
     @Override
     public void update(){

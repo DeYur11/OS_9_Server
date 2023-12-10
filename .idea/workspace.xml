@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="1.5e Anton bug V3.0 fix">
+    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.5F Update UI 3.0">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/Idea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Idea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/MainPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +26,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,19 +42,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -92,6 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1702037380124</updated>
       <workItem from="1702144735684" duration="154000" />
+      <workItem from="1702243303022" duration="1145000" />
     </task>
     <task id="LOCAL-00001" summary="V1.0">
       <created>1702037560977</created>
@@ -186,35 +188,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702239533045</updated>
     </task>
-    <task id="LOCAL-00014" summary="1.5d Anton bug fix">
-      <created>1702242090631</created>
+    <task id="LOCAL-00014" summary="V1.5F Update UI 2.0">
+      <option name="closed" value="true" />
+      <created>1702242769975</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1702242090631</updated>
+      <updated>1702242769975</updated>
     </task>
-    <task id="LOCAL-00015" summary="1.5d Anton bug fix">
-      <created>1702242327252</created>
+    <task id="LOCAL-00015" summary="V1.5F Update UI 3.0">
+      <option name="closed" value="true" />
+      <created>1702243260779</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1702242327252</updated>
+      <updated>1702243260779</updated>
     </task>
-    <task id="LOCAL-00016" summary="1.5e Anton bug V2.0 fix">
-      <created>1702242523537</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1702242523537</updated>
-    </task>
-    <task id="LOCAL-00017" summary="1.5e Anton bug V3.0 fix">
-      <created>1702242631546</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1702242631546</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +221,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -255,9 +245,8 @@
     <MESSAGE value="V1.3c Sending Ideas" />
     <MESSAGE value="V1.4 Before Test" />
     <MESSAGE value="1.5a Timers moved from constructor" />
-    <MESSAGE value="1.5d Anton bug fix" />
-    <MESSAGE value="1.5e Anton bug V2.0 fix" />
-    <MESSAGE value="1.5e Anton bug V3.0 fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.5e Anton bug V3.0 fix" />
+    <MESSAGE value="V1.5F Update UI 2.0" />
+    <MESSAGE value="V1.5F Update UI 3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.5F Update UI 3.0" />
   </component>
 </project>

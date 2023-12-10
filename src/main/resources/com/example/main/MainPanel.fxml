@@ -10,8 +10,8 @@
    <center>
       <TableView fx:id="ideaTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="idColumn" editable="false" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="№" />
-          <TableColumn fx:id="textColumn" editable="false" prefWidth="473.5999755859375" text="Text" />
+          <TableColumn fx:id="idColumn" maxWidth="50.0" prefWidth="50.0" resizable="false" text="№" />
+          <TableColumn fx:id="textColumn" prefWidth="473.5999755859375" text="Text" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
