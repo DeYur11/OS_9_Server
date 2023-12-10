@@ -29,8 +29,8 @@ public class VoteWindow implements Initializable, UpdateListener{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ideaVotesAmount.setCellValueFactory(new PropertyValueFactory<Idea, Integer>("ideaVotes"));
-        ideaText.setCellValueFactory(new PropertyValueFactory<Idea, String>("ideaID"));
-        ideaNumber.setCellValueFactory(new PropertyValueFactory<Idea, Integer>("ideaText"));
+        ideaText.setCellValueFactory(new PropertyValueFactory<Idea, String>("ideaText"));
+        ideaNumber.setCellValueFactory(new PropertyValueFactory<Idea, Integer>("ideaID"));
 
         totalIdeas.setAll(ServerContainer.getServer().getIdeaDataBase().getIdeaVector());
         ideaTable.setItems(totalIdeas);

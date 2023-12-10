@@ -33,16 +33,7 @@ public class Server {
 
         acceptThread.start();
 
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                endAccepting();
-                updateListener.update();
-            }
-        }, 6 * 1000);
-
-
-    }
+  }
 
     public DataBase getIdeaDataBase() {
         return ideaDataBase;
