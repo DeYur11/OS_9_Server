@@ -70,7 +70,6 @@ public class Server {
                 }
             }
         },180 * 1000);
-
     }
     public void endedAddingStartedVoting(){
         senderThreadVector.forEach(ClientSenderThread::sendStartVote);
@@ -84,6 +83,7 @@ public class Server {
                 }
             }
         },90 * 1000);
+        ideaDataBase.writeIdeasToFile();
         updateListener.update();
     }
     public void endedVotingResultsHandle(){
@@ -100,6 +100,7 @@ public class Server {
             }
         },2 * 1000);
         System.out.println("Best results sent");
+        ideaDataBase.writeIdeasToFile();
         updateListener.update();
     }
 
