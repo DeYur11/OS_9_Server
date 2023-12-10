@@ -38,16 +38,10 @@ public class Server {
             public void run() {
                 endAccepting();
                 updateListener.update();
-                System.out.println("Hello");
             }
         }, 6 * 1000);
 
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
-            }
-        },25 * 1000);
+
     }
 
     public DataBase getIdeaDataBase() {
@@ -92,6 +86,12 @@ public class Server {
         senderThreadVector.forEach(ClientSenderThread::sendStartVote);
         System.out.println("Ended adding ideas");
         System.out.println("Started voting");
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
+            }
+        },25 * 1000);
         updateListener.update();
     }
 
