@@ -92,7 +92,6 @@ public class Server {
                 senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
             }
         },25 * 1000);
-
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -100,13 +99,6 @@ public class Server {
             }
         },26 * 1000);
         updateListener.update();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
-            }
-        },26 * 1000);
-
     }
 
     public void addCounter(){
@@ -129,5 +121,19 @@ public class Server {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ClientSenderThread getThreadFromClient(Client client){
+        for(var i: senderThreadVector){
+            if(i.getClient().equals(client)){
+                return i;
+            }
+        }
+        return null;
+    }
+    public void deleteClientThreads(ClientSenderThread clientSenderThread, ClientListenThread listenThread){
+        System.out.println("Deleting threads");
+        senderThreadVector.remove(clientSenderThread);
+        listenThreadVector.remove(listenThread);
     }
 }
