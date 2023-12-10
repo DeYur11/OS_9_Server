@@ -33,7 +33,8 @@ public class MainPanel implements Initializable, UpdateListener {
 
     @FXML
     void onEnd(ActionEvent event) {
-        System.out.println("Hello from Scene 2");
+        server.endedAddingStartedVoting();
+        server.setVoteStatus(true);
         System.out.println(server.getListenThreadVector());
     }
 

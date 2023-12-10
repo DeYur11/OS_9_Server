@@ -39,7 +39,8 @@ public class VoteWindow implements Initializable, UpdateListener{
     }
     @FXML
     void onEnd(ActionEvent event) {
-        System.out.println("Hello from Scene 3");
+        ServerContainer.getServer().setVoteStatus(false);
+        ServerContainer.getServer().endedVotingResultsHandle();
     }
     @Override
     public void update(){

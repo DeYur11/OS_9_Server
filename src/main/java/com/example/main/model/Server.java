@@ -17,13 +17,13 @@ public class Server {
     private Vector<ClientListenThread> listenThreadVector;
     private Timer timer = new Timer();
     private UpdateListener updateListener;
-
+    private boolean voteStatus;
     private AcceptThread acceptThread;
 
     public Server() {
         try {
             serverSocket = new ServerSocket(150);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         ideaDataBase = new DataBase();
@@ -33,25 +33,22 @@ public class Server {
 
         acceptThread.start();
 
-  }
-
+    }
+    public void setVoteStatus(boolean newStatus) {
+        this.voteStatus = newStatus;
+    }
     public DataBase getIdeaDataBase() {
         return ideaDataBase;
     }
-
     public Vector<ClientSenderThread> getSenderThreadVector() {
         return senderThreadVector;
     }
-
     public Vector<ClientListenThread> getListenThreadVector() {
         return listenThreadVector;
     }
-
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
-
-
     public UpdateListener getUpdateListener() {
         return updateListener;
     }
@@ -68,29 +65,44 @@ public class Server {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                endedAddingStartedVoting();
+                if(!voteStatus){
+                    endedAddingStartedVoting();
+                }
             }
-        },15 * 1000);
+        },180 * 1000);
 
     }
-    private void endedAddingStartedVoting(){
+    public void endedAddingStartedVoting(){
         senderThreadVector.forEach(ClientSenderThread::sendStartVote);
         System.out.println("Ended adding ideas");
         System.out.println("Started voting");
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
+                if(voteStatus){
+                    endedVotingResultsHandle();
+                }
             }
-        },30 * 1000);
+        },10 * 1000);
+        updateListener.update();
+    }
+    public void endedVotingResultsHandle(){
+        System.out.println("Vote results request");
+        //запит відправки результатів голосування
+        senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
+        System.out.println("Vote results taken");
+
+        //зворотня розсилка найкращих результатів
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 senderThreadVector.forEach(ClientSenderThread::sendBestIdeas);
             }
-        },26 * 1000);
+        },3 * 1000);
+        System.out.println("Best results sent");
         updateListener.update();
     }
+
 
     public void addCounter(){
         updateListener.update();
