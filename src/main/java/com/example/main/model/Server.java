@@ -32,6 +32,16 @@ public class Server {
         acceptThread = new AcceptThread(this);
 
         acceptThread.start();
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                endAccepting();
+                updateListener.update();
+            }
+        }, 6 * 1000);
+
+
     }
 
     public DataBase getIdeaDataBase() {
@@ -70,6 +80,7 @@ public class Server {
                 endedAddingStartedVoting();
             }
         },10 * 1000);
+
     }
     private void endedAddingStartedVoting(){
         senderThreadVector.forEach(ClientSenderThread::sendStartVote);
@@ -104,19 +115,5 @@ public class Server {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public ClientSenderThread getThreadFromClient(Client client){
-        for(var i: senderThreadVector){
-            if(i.getClient().equals(client)){
-                return i;
-            }
-        }
-        return null;
-    }
-    public void deleteClientThreads(ClientSenderThread clientSenderThread, ClientListenThread listenThread){
-        System.out.println("Deleting threads");
-        senderThreadVector.remove(clientSenderThread);
-        listenThreadVector.remove(listenThread);
     }
 }

@@ -64,9 +64,9 @@ public class ClientSenderThread {
     }
    public void sendBestIdeas(){
         try {
-            Vector<Idea> bestIdea = server.getIdeaDataBase().getBestIdeas();
+            Vector<Idea> bestIdeas = server.getIdeaDataBase().getBestIdeas();
 
-            out.writeObject(bestIdea);
+            out.writeObject(bestIdeas);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
