@@ -83,7 +83,7 @@ public class Server {
                     endedVotingResultsHandle();
                 }
             }
-        },10 * 1000);
+        },90 * 1000);
         updateListener.update();
     }
     public void endedVotingResultsHandle(){
@@ -98,7 +98,7 @@ public class Server {
             public void run() {
                 senderThreadVector.forEach(ClientSenderThread::sendBestIdeas);
             }
-        },3 * 1000);
+        },2 * 1000);
         System.out.println("Best results sent");
         updateListener.update();
     }
