@@ -86,7 +86,7 @@ public class Server {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
+                senderThreadVector.forEach(ClientSenderThread::sendBestIdeas);
             }
         },26 * 1000);
         updateListener.update();
