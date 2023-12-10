@@ -70,10 +70,11 @@ public class Server {
             public void run() {
                 endedAddingStartedVoting();
             }
-        },10 * 1000);
+        },20 * 1000);
 
     }
     private void endedAddingStartedVoting(){
+        int baseWaiting = 10;
         senderThreadVector.forEach(ClientSenderThread::sendStartVote);
         System.out.println("Ended adding ideas");
         System.out.println("Started voting");
@@ -82,13 +83,14 @@ public class Server {
             public void run() {
                 senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
             }
-        },25 * 1000);
+        },baseWaiting * 1000);
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 senderThreadVector.forEach(ClientSenderThread::sendBestIdeas);
+                ideaDataBase.writeIdeasToFile();
             }
-        },26 * 1000);
+        },(baseWaiting+3) * 1000);
         updateListener.update();
     }
 
