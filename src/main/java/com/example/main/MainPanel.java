@@ -35,7 +35,6 @@ public class MainPanel implements Initializable, UpdateListener {
     void onEnd(ActionEvent event) {
         System.out.println("Hello from Scene 2");
         System.out.println(server.getListenThreadVector());
-        onAddIdea(new Idea("Hello"));
     }
 
     @FXML

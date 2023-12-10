@@ -70,7 +70,7 @@ public class Server {
             public void run() {
                 endedAddingStartedVoting();
             }
-        },10 * 1000);
+        },15 * 1000);
 
     }
     private void endedAddingStartedVoting(){
@@ -82,7 +82,7 @@ public class Server {
             public void run() {
                 senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
             }
-        },25 * 1000);
+        },30 * 1000);
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
