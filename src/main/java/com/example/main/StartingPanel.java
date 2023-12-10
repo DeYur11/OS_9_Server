@@ -27,21 +27,8 @@ public class StartingPanel implements Initializable, UpdateListener {
 
     @FXML
     void onEndClicked(ActionEvent event) {
-        makeFadout();
-    }
-    private void makeFadout(){
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.seconds(1));
-        fadeTransition.setNode(root);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                loadNextScene();
-            }
-        });
-        fadeTransition.play();
+        server.endAccepting();
+        loadNextScene();
     }
 
     private void loadNextScene() {
