@@ -62,8 +62,6 @@ public class ClientListenThread extends Thread {
                 System.out.println("Ended work of ClientListenThread");
                 return;
             }
-
         }
     }
-
 }

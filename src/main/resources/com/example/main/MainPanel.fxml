@@ -6,13 +6,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-
-<BorderPane fx:id="root" prefHeight="440.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.main.MainPanel">
+<BorderPane fx:id="root" prefHeight="440.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.main.MainPanel">
    <center>
       <TableView fx:id="ideaTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="124.79998779296875" text="№" />
-          <TableColumn fx:id="textColumn" prefWidth="473.5999755859375" text="Text" />
+          <TableColumn fx:id="idColumn" editable="false" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="№" />
+          <TableColumn fx:id="textColumn" editable="false" prefWidth="473.5999755859375" text="Text" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
