@@ -24,8 +24,6 @@ import java.util.ResourceBundle;
 
 public class MainPanel implements Initializable, UpdateListener {
     Server server = ServerContainer.getServer();
-
-
     @FXML
     private BorderPane root;
     @FXML

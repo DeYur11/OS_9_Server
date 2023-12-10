@@ -1,5 +1,9 @@
 package com.example.main.model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Vector;
@@ -24,7 +28,7 @@ public class DataBase {
     public void addIdea(Idea newIdea){
         ideaVector.add(newIdea);
     }
-    public Vector<Idea> getBestIdeas(){
+    public Vector<Idea> getBestIdeas() {
         Vector<Idea> ideaWinnersList = new Vector<>();
         Vector<Idea> copiedIdeaVector = new Vector<>(ideaVector);
 
@@ -34,5 +38,16 @@ public class DataBase {
             ideaWinnersList.add(copiedIdeaVector.get(i));
         }
         return ideaWinnersList;
+    }
+    public void writeIdeasToFile(){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"))) {
+            for (Idea obj : ideaVector) {
+                writer.write(obj.toString());
+                writer.newLine();
+            }
+            System.out.println("Objects written to file.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
