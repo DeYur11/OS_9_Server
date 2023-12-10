@@ -11,6 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
@@ -42,6 +44,12 @@ public class VoteWindow implements Initializable, UpdateListener{
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
+                Collections.sort(ideasVector, new Comparator<Idea>() {
+                    @Override
+                    public int compare(Idea o1, Idea o2) {
+                        return Integer.compare(o2.getIdeaVotes(), o1.getIdeaVotes());
+                    }
+                });
                 totalIdeas.setAll(ideasVector);
                 ideaTable.refresh();
             }

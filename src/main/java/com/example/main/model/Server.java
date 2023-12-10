@@ -43,14 +43,14 @@ public class Server {
             public void run() {
                 senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
             }
-        },180 * 1000);
+        },25 * 1000);
 
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 senderThreadVector.forEach(ClientSenderThread::sendBestIdeas);
             }
-        },180 * 1000);
+        },30 * 1000);
     }
 
     public DataBase getIdeaDataBase() {

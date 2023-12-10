@@ -43,6 +43,7 @@ public class ClientListenThread extends Thread {
                     for (int i = 0; i < selectedID.size(); i++) {
                         server.getIdeaDataBase().getIdeaByID(selectedID.get(i)).increaseVoteAmount();
                     }
+                    server.addCounter();
                 }
 
             }
