@@ -20,7 +20,7 @@
       </TableView>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" text="End" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#onEnd" text="End" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" top="10.0" />
          </BorderPane.margin></Button>
