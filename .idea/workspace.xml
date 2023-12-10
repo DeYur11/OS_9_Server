@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="1.5d Anton bug fix">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/main/MainPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/MainPanel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/main/VoteWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/VoteWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/main/hello-view.fxml" beforeDir="false" />
+    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.5F Update UI 2.0">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702239533045</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="V1.5F Update UI 2.0">
+      <option name="closed" value="true" />
+      <created>1702242769975</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702242769975</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +231,7 @@
     <MESSAGE value="V1.3c Sending Ideas" />
     <MESSAGE value="V1.4 Before Test" />
     <MESSAGE value="1.5a Timers moved from constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.5a Timers moved from constructor" />
+    <MESSAGE value="V1.5F Update UI 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.5F Update UI 2.0" />
   </component>
 </project>
