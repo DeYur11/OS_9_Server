@@ -26,7 +26,13 @@ public class ClientListenThread extends Thread {
         while(true){
             try{
                 Object message = ideaInputStream.readObject();
-                System.out.println("Accec");
+                System.out.println("Message accepted, message class: " + message.getClass());
+                if(message instanceof Integer){
+                    if((Integer)message == 66){
+                        System.out.println("End of listening");
+                        return;
+                    }
+                }
                 if(message instanceof Idea){
                    server.getIdeaDataBase().addIdea((Idea)message);
                    Idea.ideaAmount++;
@@ -48,7 +54,8 @@ public class ClientListenThread extends Thread {
 
             }
             catch (Exception e){
-                throw new RuntimeException(e);
+                System.out.println("Ended work of ClientListenThread");
+                return;
             }
 
         }

@@ -13,6 +13,10 @@ public class ClientSenderThread {
     private Server server;
     private ObjectOutputStream out;
 
+    public Client getClient() {
+        return client;
+    }
+
     public ClientSenderThread(Client client, Server server) {
         this.client = client;
         this.server = server;
@@ -64,6 +68,15 @@ public class ClientSenderThread {
 
             out.writeObject(bestIdea);
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void sendMessage(Integer message){
+        try {
+            out.writeObject(message);
+            System.out.println("Sent");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

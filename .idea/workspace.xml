@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.3c Sending Ideas">
+    <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="V1.4 Before Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/VoteWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/VoteWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/AcceptThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/AcceptThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientListenThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientSenderThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/ClientSenderThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/main/model/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702163345362</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="V1.4 Before Test">
+      <created>1702167622087</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702167622087</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +207,7 @@
     <MESSAGE value="V1.1.1 Fix problem with timers" />
     <MESSAGE value="V1.3a Anton bug fix" />
     <MESSAGE value="V1.3c Sending Ideas" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.3c Sending Ideas" />
+    <MESSAGE value="V1.4 Before Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.4 Before Test" />
   </component>
 </project>

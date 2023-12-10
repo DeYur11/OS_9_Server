@@ -2,16 +2,20 @@ package com.example.main.model;
 
 import com.example.main.UpdateListener;
 
+import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
 public class Server {
     private DataBase ideaDataBase;
+    private static final byte END_WAITING = 66;
     private ServerSocket serverSocket;
     private Vector<ClientSenderThread> senderThreadVector;
     private Vector<ClientListenThread> listenThreadVector;
+    private Timer timer = new Timer();
     private UpdateListener updateListener;
 
     private AcceptThread acceptThread;
@@ -26,7 +30,7 @@ public class Server {
         senderThreadVector = new Vector<>();
         listenThreadVector = new Vector<>();
         acceptThread = new AcceptThread(this);
-        Timer timer = new Timer();
+
         acceptThread.start();
 
         timer.schedule(new TimerTask() {
@@ -44,13 +48,6 @@ public class Server {
                 senderThreadVector.forEach(ClientSenderThread::sendVoteResult);
             }
         },25 * 1000);
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                senderThreadVector.forEach(ClientSenderThread::sendBestIdeas);
-            }
-        },30 * 1000);
     }
 
     public DataBase getIdeaDataBase() {
@@ -83,17 +80,21 @@ public class Server {
         System.out.println(listenThreadVector);
         senderThreadVector.forEach(ClientSenderThread::sendEndAccept);
         acceptThread.stopThread();
-        acceptThread.interrupt();
-        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                senderThreadVector.forEach(ClientSenderThread::sendStartVote);
-                System.out.println("Ended voting");
-                updateListener.update();
+                endedAddingStartedVoting();
             }
         },10 * 1000);
+
     }
+    private void endedAddingStartedVoting(){
+        senderThreadVector.forEach(ClientSenderThread::sendStartVote);
+        System.out.println("Ended adding ideas");
+        System.out.println("Started voting");
+        updateListener.update();
+    }
+
     public void addCounter(){
         updateListener.update();
     }
@@ -101,4 +102,18 @@ public class Server {
         updateListener.addIdea(toAdd);
     }
 
+    public void powerOff(){
+        try {
+            timer.cancel();
+            senderThreadVector.forEach(senderThreadVector-> senderThreadVector.sendMessage((int) END_WAITING));
+            System.out.println("Sent message to close");
+            for(var i: listenThreadVector){
+                i.join();
+            }
+            System.out.println("Closing socket ...");
+            serverSocket.close();
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

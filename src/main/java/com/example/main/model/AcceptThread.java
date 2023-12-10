@@ -1,8 +1,12 @@
 package com.example.main.model;
 
+import java.io.IOException;
 import java.net.Socket;
 
 public class AcceptThread extends Thread {
+
+    private static final byte END_WAITING = 66;
+    private static final byte CONNECT_REQUEST = 1;
     private Server server;
 
     private boolean running = true;
@@ -18,7 +22,9 @@ public class AcceptThread extends Thread {
             try{
                 System.out.println("Started listening");
                 Socket socket = server.getServerSocket().accept();
-                if(!running){
+
+                int code = socket.getInputStream().read();
+                if(code == END_WAITING){
                     System.out.println("Ended accepting");
                     return;
                 }
@@ -35,7 +41,8 @@ public class AcceptThread extends Thread {
 
                 listenThread.start();
             }catch (Exception e){
-                e.printStackTrace();
+                System.out.println("Ended thread accepting");
+                return;
             }
         }
         System.out.println("Ended thread accepting");
@@ -43,5 +50,13 @@ public class AcceptThread extends Thread {
 
     public void stopThread() {
         running = false;
+        try {
+            Socket socket = new Socket("localhost", 150);
+            socket.getOutputStream().write(END_WAITING); // Надсилаємо сигнал про закінчення прийому.
+            socket.getOutputStream().flush();
+            socket.close();
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 }
