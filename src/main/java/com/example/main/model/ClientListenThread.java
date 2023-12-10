@@ -31,6 +31,11 @@ public class ClientListenThread extends Thread {
                     if((Integer)message == 66){
                         System.out.println("End of listening");
                         return;
+                    } else if ((Integer)message == 55) {
+                        server.getThreadFromClient(client).sendMessage(55);
+                        server.deleteClientThreads(server.getThreadFromClient(client), this);
+                        System.out.println("End of listening");
+                        return;
                     }
                 }
                 if(message instanceof Idea){

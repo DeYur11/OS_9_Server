@@ -116,4 +116,18 @@ public class Server {
             throw new RuntimeException(e);
         }
     }
+
+    public ClientSenderThread getThreadFromClient(Client client){
+        for(var i: senderThreadVector){
+            if(i.getClient().equals(client)){
+                return i;
+            }
+        }
+        return null;
+    }
+    public void deleteClientThreads(ClientSenderThread clientSenderThread, ClientListenThread listenThread){
+        System.out.println("Deleting threads");
+        senderThreadVector.remove(clientSenderThread);
+        listenThreadVector.remove(listenThread);
+    }
 }
