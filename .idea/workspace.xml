@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20b879c2-0154-4e40-a652-c14ad58cefbc" name="Changes" comment="1.5d Anton bug fix">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/main/MainPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/MainPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/main/VoteWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/main/VoteWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/main/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +25,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -183,21 +184,7 @@
       <option name="project" value="LOCAL" />
       <updated>1702239533045</updated>
     </task>
-    <task id="LOCAL-00014" summary="1.5d Anton bug fix">
-      <created>1702242090631</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1702242090631</updated>
-    </task>
-    <task id="LOCAL-00015" summary="1.5d Anton bug fix">
-      <created>1702242327252</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1702242327252</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,7 +225,6 @@
     <MESSAGE value="V1.3c Sending Ideas" />
     <MESSAGE value="V1.4 Before Test" />
     <MESSAGE value="1.5a Timers moved from constructor" />
-    <MESSAGE value="1.5d Anton bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.5d Anton bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.5a Timers moved from constructor" />
   </component>
 </project>
