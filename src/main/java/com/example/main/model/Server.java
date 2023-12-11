@@ -98,7 +98,7 @@ public class Server {
             public void run() {
                 senderThreadVector.forEach(ClientSenderThread::sendBestIdeas);
             }
-        },2 * 1000);
+        },3 * 1000);
         System.out.println("Best results sent");
         ideaDataBase.writeIdeasToFile();
         updateListener.update();

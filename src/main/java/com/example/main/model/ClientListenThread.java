@@ -11,6 +11,7 @@ public class ClientListenThread extends Thread {
 
 
     public ClientListenThread(Client client, Server server) {
+
         this.client = client;
         this.server = server;
         try {
@@ -49,6 +50,8 @@ public class ClientListenThread extends Thread {
                     System.out.println((String)message);
                 }
                 else if(message.getClass().equals(Vector.class)){
+                    int random = (int) ((Math.random()*2000));
+                    Thread.sleep(random);
                     Vector<Integer> selectedID = (Vector<Integer>) message;
 
                     for (int i = 0; i < selectedID.size(); i++) {
