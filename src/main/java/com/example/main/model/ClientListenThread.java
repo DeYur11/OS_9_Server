@@ -40,6 +40,8 @@ public class ClientListenThread extends Thread {
                     }
                 }
                 if(message instanceof Idea){
+                    int random = (int) ((Math.random()*1000));
+                    Thread.sleep(random);
                    server.getIdeaDataBase().addIdea((Idea)message);
                    Idea.ideaAmount++;
                    server.getSenderThreadVector().stream().forEach(thread -> thread.sendIdea(server.getIdeaDataBase().getIdeaVector().lastElement()));
